@@ -1,23 +1,93 @@
+#home-bg{
+    /* background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(/book.jpg);
+    background-size: cover;
+    background-position: center; */
+    padding-top: -300px;
+  }
+
 .black {
     color: rgb(4, 12, 1);
+}
+
+h1,h2{
+    font-weight: bold;
 }
 
 .recipients{
     text-align:center;
     font: Serif;
+    border-style:solid;
+    border-width:small;
+    border-left-style:none;
+    border-right-style:none;
+    border-top-style:none;
 }
 
 .recipientList{
+    font-weight: bold;
     border-style:solid;
     border-width:small;
     text-align:center;
     padding:1px;
+    border-left-style:none;
+    border-right-style:none;
+    border-top-style:none;
 }
 
-.messages{
+.messagesView{
+    height:478px;
+}
+
+.messagesSender{
+    font-weight: bold;
+    font-size: medium;
+    line-height: 30px;
+}
+
+.messagesDate{
+    font-size: medium;   
+}
+
+.messagesContent{
+    font-weight: bold;
+    font-size: large;
+}
+
+.wholeView{
+    border-style:solid;
+    border-width:small;
+    width:1000px;
+}
+
+.leftBar{
+    width:250px; 
+    height:500px;
+    float: left;
     border-style:solid;
     border-width:medium;
-    width:300px; 
-    height:400px;
-    line-height: 30px;
+    border-top-style:none;
+    border-bottom-style:none;
+    border-left-style:none;
+    overflow-y: scroll;
+}
+
+.rightBar{
+    width:700px; 
+    height:500px;
+    float: right;
+    overflow-y: scroll;
+}
+
+.inputWhole{
+    width:1000px; 
+    padding-left: 252px;
+    border-style:solid;
+    border-width:medium;
+    border-left-style:none;
+    border-right-style:none;
+}
+
+.inputLine{
+    padding-top: 10px;
+    padding-bottom: 10px;
 }

@@ -55,7 +55,6 @@ router.post('/facebook', (req, res) => {
 
 router.post("/login", (req, res) => {
     User.findOne({ email: req.body.email }, (err, user) => {
-        console.log('user===>>>>>>>>', err, 'reepppp===>>>', user)
         if (!user)
             return res.json({
                 loginSuccess: false,
@@ -65,7 +64,6 @@ router.post("/login", (req, res) => {
             
 
         user.comparePassword(req.body.password, (err, isMatch) => {
-            console.log('user===>>>>>>>>', isMatch)
             if (!isMatch)
                 return res.json({ loginSuccess: false, message: "Wrong password" });
             user.generateToken((err, user) => {

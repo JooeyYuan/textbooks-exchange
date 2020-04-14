@@ -140,61 +140,71 @@ class ChatsPage extends Component {
       activeRecipient,
     } = this.state;
     return (
-      <div style={{ maxWidth: '1000px', margin: '75px auto' }}>
-        <Row>
-          <Col span={24}>
-            <div style={{ textAlign: 'center' }}>
-              <h1>Messages</h1>
-            </div>
-          </Col>
-          <Col style={{ borderBlockWidth: '2px' }} span={8}>
-            <div className='recipients'> 
-              <h2>Recipients</h2>
-            </div>
-            {recipients.map((recipient, i) => (
-              <div className='recipientList' key={i} onClick={() => this.readMessages(recipient._id)}>
-                <h3>
-                  {!recipient.newChat && (
-                    <DeleteOutlined
-                      onClick={() => this.deleteMessages(recipient._id)}
-                    />
-                  )}{' '}
-                  -{' '}
-                  <span className='black'>
-                    {capitalizeFirstLetter(recipient.fullname)}
-                  </span>
-                  {recipient.unread ? ` - ${recipient.unread} New` : ''}
-                </h3>
+      <div id='home-bg'>
+        <div style={{ maxWidth: '1000px', margin: '75px auto' }}>
+          <Row>
+            <Col span={24}>
+              <div style={{ textAlign: 'center' }}>
+                <h1>Messages</h1>
               </div>
-            ))}
-          </Col>
-          <Col span={16}>
-            <Row>
-              <Col className='messages' span={16}>
-                {selectedRecipientMessages.map((m, i) => (
-                  <div  key={i}>
-                    {capitalizeFirstLetter(m.sender.fullname)}
-                    {' - '}
-                    <span>
-                      {moment(m.createdAt).format('MMMM Do YYYY, h:mm a')}:
-                    </span>{' '}
-                    <span
-                      dangerouslySetInnerHTML={{ __html: m.message }}
-                    ></span>
+            </Col>
+            <div className='wholeView'>
+              <div className='leftBar'>
+                <Col style={{ borderBlockWidth: '2px' }} >
+                  <div className='recipients'> 
+                    <h2>Recipients</h2>
                   </div>
-                ))}
-              </Col>
-            </Row>
-            <Row>
-              <Col span={16}>
+                  {recipients.map((recipient, i) => (
+                    <div className='recipientList' key={i} onClick={() => this.readMessages(recipient._id)}>
+                      <h3>
+                        {!recipient.newChat && (
+                          <DeleteOutlined
+                            onClick={() => this.deleteMessages(recipient._id)}
+                          />
+                        )}{' '}
+                        -{' '}
+                        <span className='black'>
+                          {capitalizeFirstLetter(recipient.fullname)}
+                        </span>
+                        {recipient.unread ? ` - ${recipient.unread} New` : ''}
+                      </h3>
+                    </div>
+                  ))}
+                </Col>
+              </div>
+              <div className='rightBar'>
+                <Col>
+                  <Row>
+                    <Col>
+                      <div className='messagesView'>
+                        {selectedRecipientMessages.map((m, i) => (
+                          <div  className='messagesSender' key={i}>
+                            {capitalizeFirstLetter(m.sender.fullname)}
+                            {' - '}
+                            <span className= 'messagesDate'>
+                              {moment(m.createdAt).format('MMMM Do YYYY, h:mm a')}:
+                            </span>{' '}{"\n"}
+                            <span className='messagesContent'
+                              dangerouslySetInnerHTML={{ __html: m.message }}
+                            ></span>
+                          </div>
+                        ))}
+                      </div>
+                    </Col>
+                  </Row>
+                </Col>
+                </div>
+            </div>
+            <div className='inputWhole'>
+              <div className='inputLine'>
                 {activeRecipient && (
-                  <Form layout='inline' onFinish={this.submitChatMessage}>
-                    <Col span={15}>
+                  <Form  onFinish={this.submitChatMessage}>
                       <Input
+                        style={{ width: '650px'}}
                         id='chatMessage'
                         prefix={
                           <MessageOutlined
-                            style={{ color: 'rgba(0,0,0,.25)' }}
+                            style={{ color: 'rgba(255,0,0,0.6)' }}
                           />
                         }
                         placeholder='Type your message'
@@ -203,18 +213,15 @@ class ChatsPage extends Component {
                         onChange={this.handleInputChange}
                         required
                       />
-                    </Col>
-                    <Col span={1}>
                       <Button type='secondary' size='medium' htmlType='submit'>
                         <EnterOutlined />
                       </Button>
-                    </Col>
                   </Form>
                 )}
-              </Col>
-            </Row>
-          </Col>
-        </Row>
+              </div>
+            </div>
+          </Row>
+        </div>
       </div>
     );
   }

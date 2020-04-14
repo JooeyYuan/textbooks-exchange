@@ -6,7 +6,8 @@ import * as Yup from 'yup';
 import { Form, Input, Button, Typography } from 'antd';
 import Icon, { UserOutlined, LockOutlined } from '@ant-design/icons';
 import { useDispatch } from 'react-redux';
-import Facebook from '../../components/Facebook'
+import Facebook from '../../components/Facebook';
+import './Facebook.css';
 
 const { Title } = Typography;
 
@@ -82,7 +83,7 @@ function LoginPage(props) {
             handleReset,
           } = props;
           return (
-            <div className='app'>
+            <div className='appLogin'>
               <Title level={2}>Sign In</Title>
               <form onSubmit={handleSubmit} style={{ width: '350px' }}>
                 <Form.Item required>
@@ -163,8 +164,10 @@ function LoginPage(props) {
           );
         }}
       </Formik>
-
-      <Facebook />
+      <h2 style={{textAlign:"center", color:"black"}}> Or sign in with Facebook </h2>
+      <div id='styling'>
+        <Facebook />
+      </div>
     </div>
   );
 }
