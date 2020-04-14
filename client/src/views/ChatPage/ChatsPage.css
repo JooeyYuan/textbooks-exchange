@@ -1,0 +1,23 @@
+.black {
+    color: rgb(4, 12, 1);
+}
+
+.recipients{
+    text-align:center;
+    font: Serif;
+}
+
+.recipientList{
+    border-style:solid;
+    border-width:small;
+    text-align:center;
+    padding:1px;
+}
+
+.messages{
+    border-style:solid;
+    border-width:medium;
+    width:300px; 
+    height:400px;
+    line-height: 30px;
+}
