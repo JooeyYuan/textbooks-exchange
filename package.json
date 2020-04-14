@@ -1,6 +1,9 @@
 {
   "name": "react_template_repo",
   "version": "1.0.0",
+  "engines": {
+    "node": "12.14.1"
+  },
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
   "main": "index.js",
   "scripts": {
@@ -11,7 +14,7 @@
     "dev": "concurrently \"nodemon server/server.js\" \"cd client && npm run start\"",
     "build": "cd client && npm build",
     "start": "node server/server.js",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run build "
+    "heroku-postbuild": "cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run build "
   },
   "repository": {
     "type": "git",
