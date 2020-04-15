@@ -2,7 +2,12 @@ import React, { useEffect, useState } from 'react';
 import Axios from 'axios';
 import { Link } from 'react-router-dom';
 import { Button, Form, Input, Avatar } from 'antd';
-import Icon from '@ant-design/icons';
+import ProfileOutlined from '@ant-design/icons/ProfileOutlined';
+import ShoppingFilled from '@ant-design/icons/ShoppingFilled';
+import ScheduleOutlined from '@ant-design/icons/ScheduleOutlined';
+import EditOutlined from '@ant-design/icons/EditOutlined';
+import DeleteOutlined from '@ant-design/icons/DeleteOutlined';
+
 import { useDispatch } from 'react-redux';
 import { fetchProfile, updateProfile } from '../../actions/user_actions';
 
@@ -128,7 +133,7 @@ function ProfilePage() {
           <Avatar src={image} alt='image' />
           My Profile{' '}
           <Link className='btn btn-light' to='/settings'>
-            <Icon type='setting' style={{ color: 'grey' }} />
+            <ProfileOutlined type='setting' style={{ color: 'grey' }} />
           </Link>
         </h1>
       </div>
@@ -186,7 +191,7 @@ function ProfilePage() {
 
       <div style={{ textAlign: 'left' }}>
         <h1>
-          My Purchase History <Icon type='shopping' />
+          My Purchase History <ShoppingFilled type='shopping' />
         </h1>
       </div>
       <br />
@@ -217,7 +222,7 @@ function ProfilePage() {
 
       <div style={{ textAlign: 'left' }}>
         <h1>
-          My Post History <Icon type='schedule' />
+          My Post History <ScheduleOutlined type='schedule' />
         </h1>
       </div>
       <br />
@@ -250,7 +255,7 @@ function ProfilePage() {
               <td>
                 <a href={`/product/edit/${p.id}`}>
                   <Button type='dashed'>
-                    <Icon type='edit' />
+                    <EditOutlined type='edit' />
                   </Button>
                 </a>
               </td>
@@ -266,7 +271,7 @@ function ProfilePage() {
                       removeItem(p.id);
                   }}
                 >
-                  <Icon type='delete' />
+                  <DeleteOutlined type='delete' />
                 </Button>
               </td>
             </tr>

@@ -1,5 +1,5 @@
 import { Button, Form, Input } from 'antd';
-import Icon from '@ant-design/icons';
+import LockOutlined from '@ant-design/icons/LockOutlined';
 import { changePassword } from '../../actions/user_actions';
 import React, { useState } from 'react';
 
@@ -35,7 +35,7 @@ function Setting() {
     <div style={{ width: '80%', margin: '3rem auto ' }}>
       <div style={{ textAlign: 'left' }}>
         <h1>
-          Change Password <Icon type='lock' />
+          Change Password <LockOutlined type='lock' />
         </h1>
       </div>
       <Form onSubmit={onSubmit}>
