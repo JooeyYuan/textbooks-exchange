@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Form, Input, Button, Row, Col } from 'antd';
 import {
-  EnterOutlined,
   MessageOutlined,
-  StopOutlined
+  StopOutlined,
+  EditOutlined
 } from '@ant-design/icons';
 import io from 'socket.io-client';
 import { connect } from 'react-redux';
@@ -214,7 +214,7 @@ class ChatsPage extends Component {
                         required
                       />
                       <Button type='secondary' size='medium' htmlType='submit'>
-                        <EnterOutlined />
+                        <EditOutlined />
                       </Button>
                   </Form>
                 )}
