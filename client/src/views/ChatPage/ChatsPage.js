@@ -3,7 +3,7 @@ import { Form, Input, Button, Row, Col } from 'antd';
 import {
   EnterOutlined,
   MessageOutlined,
-  ClearOutlined
+  DisconnectOutlined
 } from '@ant-design/icons';
 import io from 'socket.io-client';
 import { connect } from 'react-redux';
@@ -158,7 +158,7 @@ class ChatsPage extends Component {
                     <div className='recipientList' key={i} onClick={() => this.readMessages(recipient._id)}>
                       <h3>
                         {!recipient.newChat && (
-                          <ClearOutlined
+                          <DisconnectOutlined
                             onClick={() => this.deleteMessages(recipient._id)}
                           />
                         )}{' '}
