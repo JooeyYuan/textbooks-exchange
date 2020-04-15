@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from 'antd';
-import Icon, { MailOutlined, PhoneOutlined, DeleteOutlined } from '@ant-design/icons';
+import Icon, { MailOutlined, PhoneOutlined, DisconnectOutlined } from '@ant-design/icons';
 
 function UserCardBlock(props) {
   const renderCartImage = (images) => {
@@ -31,7 +31,7 @@ function UserCardBlock(props) {
         <td>$ {product.price} </td>
         <td>
           <Button type='danger' onClick={() => props.removeItem(product._id)}>
-            <DeleteOutlined type='delete' />{' '}
+            <DisconnectOutlined type='delete' />{' '}
           </Button>{' '}
         </td>
       </tr>
