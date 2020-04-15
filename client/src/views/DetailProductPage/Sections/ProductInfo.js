@@ -3,7 +3,6 @@ import { Popover, Button, Descriptions } from 'antd';
 import {
   MailOutlined,
   PhoneOutlined,
-  RollbackOutlined,
   RestOutlined,
   LaptopOutlined,
   UserOutlined,
