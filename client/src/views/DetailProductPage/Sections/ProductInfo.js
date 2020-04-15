@@ -8,6 +8,7 @@ import LaptopOutlined from '@ant-design/icons/LaptopOutlined';
 import MessageOutlined from '@ant-design/icons/MessageOutlined';
 import HeartOutlined from '@ant-design/icons/HeartOutlined';
 import ShoppingCartOutlined from '@ant-design/icons/ShoppingCartOutlined';
+import UserOutlined from '@ant-design/icons/UserOutlined';
 
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
