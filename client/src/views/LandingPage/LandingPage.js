@@ -197,7 +197,7 @@ function LandingPage() {
             <Col lg={12} xs={12}>
               <label>
                 <strong>
-                  <RollbackOutlined type='filter' />
+                  <FilterOutlined type='filter' />
                   Program Level:
                 </strong>
               </label>
