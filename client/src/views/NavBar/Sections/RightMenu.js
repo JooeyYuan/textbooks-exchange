@@ -3,7 +3,7 @@ import { Menu, Badge, Tooltip } from 'antd';
 import {
   UserAddOutlined,
   UploadOutlined,
-  HeartFilled,
+  RollbackOutlined,
   ShoppingCartOutlined,
   LogoutOutlined,
   MessageOutlined,
@@ -64,7 +64,7 @@ function RightMenu(props) {
           <Badge dot={user.userData && user.userData.favorite.length}>
             <Tooltip placement='bottom' title='wish list'>
               <a href='/favorite'>
-                <HeartFilled style={{ fontSize: 25 }} />
+                <RollbackOutlined style={{ fontSize: 25 }} />
               </a>
             </Tooltip>
           </Badge>
