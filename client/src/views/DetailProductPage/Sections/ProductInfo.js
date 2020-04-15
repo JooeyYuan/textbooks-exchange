@@ -4,12 +4,12 @@ import {
   MailOutlined,
   PhoneOutlined,
   RestOutlined,
-  LaptopOutlined,
   UserOutlined,
   MessageOutlined,
   RollbackOutlined,
   ShoppingCartOutlined
 } from '@ant-design/icons';
+import LaptopOutlined from '@ant-design/icons/LaptopOutlined'
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
