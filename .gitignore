@@ -7,9 +7,7 @@
 /.pnp
 .pnp.js
 
-# testing
-/coverage
-/server/config/config.js
+/config/default.json
 
 # production
 /build
@@ -56,4 +54,4 @@ yarn-error.log*
 # User-specific stuff
 .idea/*
 
-config/default.json
+
