@@ -8,8 +8,8 @@ import {
   LaptopOutlined,
   UserOutlined,
   MessageOutlined,
-  HeartOutlined,
-  ShoppingCartOutlined,
+  RollbackOutlined,
+  ShoppingCartOutlined
 } from '@ant-design/icons';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -137,7 +137,7 @@ function ProductInfo(props) {
           type='danger'
           onClick={addToFavoritehandler}
         >
-          <HeartOutlined />
+          <RollbackOutlined />
         </Button>
       </div>
       <Descriptions title='Details:'>
