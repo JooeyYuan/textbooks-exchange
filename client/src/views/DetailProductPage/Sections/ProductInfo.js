@@ -3,7 +3,7 @@ import { Popover, Button, Descriptions } from 'antd';
 import {
   MailOutlined,
   PhoneOutlined,
-  HomeOutlined,
+  RollbackOutlined,
   RestOutlined,
   LaptopOutlined,
   UserOutlined,
@@ -117,7 +117,7 @@ function ProductInfo(props) {
         <strong>Address:</strong>
       </label>
       <p>
-        <HomeOutlined /> {Product.useraddr}
+        <RollbackOutlined /> {Product.useraddr}
       </p>
       <label>
         <strong>Bio:</strong>
