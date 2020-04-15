@@ -3,7 +3,7 @@ import { Form, Input, Button, Row, Col } from 'antd';
 import {
   MessageOutlined,
   StopOutlined,
-  EditFilled
+  RollbackOutlined
 } from '@ant-design/icons';
 import io from 'socket.io-client';
 import { connect } from 'react-redux';
@@ -214,7 +214,7 @@ class ChatsPage extends Component {
                         required
                       />
                       <Button type='secondary' size='medium' htmlType='submit'>
-                        <EditFilled />
+                        <RollbackOutlined />
                       </Button>
                   </Form>
                 )}
