@@ -14,7 +14,7 @@
     "server": "nodemon server/server.js",
     "dev": "concurrently \"nodemon server/server.js\" \"cd client && npm run start\"",
     "build": "cd client && npm build",
-    "start": "node server/server.js",
+    "start": "node server/server.js"
   },
   "repository": {
     "type": "git",
