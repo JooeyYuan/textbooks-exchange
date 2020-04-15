@@ -1,5 +1,5 @@
 import React from 'react';
-import Icon, { SmileOutlined } from '@ant-design/icons';
+import SmileOutlined from '@ant-design/icons/SmileOutlined'
 
 function Footer() {
   return (

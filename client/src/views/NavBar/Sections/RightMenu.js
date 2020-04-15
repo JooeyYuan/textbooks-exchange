@@ -1,13 +1,11 @@
 import React from 'react';
 import { Menu, Badge, Tooltip } from 'antd';
-import {
-  UserAddOutlined,
-  UploadOutlined,
-  RollbackOutlined,
-  ShoppingCartOutlined,
-  LogoutOutlined,
-  MessageOutlined,
-} from '@ant-design/icons';
+import UserAddOutlined from '@ant-design/icons/UserAddOutlined';
+import UploadOutlined from '@ant-design/icons/UploadOutlined';
+import HeartOutlined from '@ant-design/icons/HeartOutlined';
+import ShoppingCartOutlined from '@ant-design/icons/ShoppingCartOutlined';
+import LogoutOutlined from '@ant-design/icons/LogoutOutlined';
+import MessageOutlined from '@ant-design/icons/MessageOutlined';
 import axios from 'axios';
 import { withRouter } from 'react-router-dom';
 import { useSelector } from 'react-redux';
@@ -64,7 +62,7 @@ function RightMenu(props) {
           <Badge dot={user.userData && user.userData.favorite.length}>
             <Tooltip placement='bottom' title='wish list'>
               <a href='/favorite'>
-                <RollbackOutlined style={{ fontSize: 25 }} />
+                <HeartOutlined style={{ fontSize: 25 }} />
               </a>
             </Tooltip>
           </Badge>

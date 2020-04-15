@@ -1,5 +1,5 @@
 import React from 'react';
-import Icon, { WarningOutlined } from '@ant-design/icons';
+import WarningOutlined from '@ant-design/icons/WarningOutlined';
 
 export default () => (
   <div className='jumbotron jumbotron-fluid'>

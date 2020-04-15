@@ -1,6 +1,11 @@
 import React from 'react';
 import { Button } from 'antd';
-import Icon, { ReadOutlined, SafetyOutlined, ShopOutlined, SearchOutlined, SaveOutlined, PayCircleOutlined } from '@ant-design/icons';
+import ReadOutlined from '@ant-design/icons/ReadOutlined';
+import SafetyOutlined from '@ant-design/icons/SafetyOutlined';
+import ShopOutlined from '@ant-design/icons/ShopOutlined';
+import SearchOutlined from '@ant-design/icons/SearchOutlined';
+import SaveOutlined from '@ant-design/icons/SaveOutlined';
+import PayCircleOutlined from '@ant-design/icons/PayCircleOutlined';
 import './Home.css';
 import { Row, Col } from 'antd';
 

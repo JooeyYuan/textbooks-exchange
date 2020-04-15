@@ -1,6 +1,8 @@
 import React from 'react';
 import { Button } from 'antd';
-import Icon, { MailOutlined, PhoneOutlined, StopOutlined } from '@ant-design/icons';
+import MailOutlined from '@ant-design/icons/MailOutlined';
+import PhoneOutlined from '@ant-design/icons/PhoneOutlined';
+import StopOutlined from '@ant-design/icons/StopOutlined';
 
 function UserCardBlock(props) {
   const renderCartImage = (images) => {

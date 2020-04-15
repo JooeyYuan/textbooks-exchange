@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import Axios from 'axios';
 import { Col, Card, Row, Button } from 'antd';
-import Icon, { RocketOutlined, RollbackOutlined } from '@ant-design/icons';
+import RocketOutlined from '@ant-design/icons/RocketOutlined';
+import FilterOutlined from '@ant-design/icons/FilterOutlined';
 import ImageSlider from '../../components/ImageSlider';
 import CheckBox from './Sections/CheckBox';
 import RadioBox from './Sections/RadioBox';
@@ -146,7 +147,7 @@ function LandingPage() {
             <Col lg={12} xs={12}>
               <label>
                 <strong>
-                  <RollbackOutlined type='filter' />
+                  <FilterOutlined type='filter' />
                   Condition:
                 </strong>
               </label>
