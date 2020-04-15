@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Axios from 'axios';
 import { Col, Card, Row, Button } from 'antd';
-import Icon, { RocketOutlined, FilterOutlined } from '@ant-design/icons';
+import Icon, { RocketOutlined, RollbackOutlined } from '@ant-design/icons';
 import ImageSlider from '../../components/ImageSlider';
 import CheckBox from './Sections/CheckBox';
 import RadioBox from './Sections/RadioBox';
@@ -146,7 +146,7 @@ function LandingPage() {
             <Col lg={12} xs={12}>
               <label>
                 <strong>
-                  <FilterOutlined type='filter' />
+                  <RollbackOutlined type='filter' />
                   Condition:
                 </strong>
               </label>
@@ -158,7 +158,7 @@ function LandingPage() {
             <Col lg={12} xs={12}>
               <label>
                 <strong>
-                  <FilterOutlined type='filter' />
+                  <RollbackOutlined type='filter' />
                   Category:
                 </strong>
               </label>
@@ -170,7 +170,7 @@ function LandingPage() {
             <Col lg={12} xs={12}>
               <label>
                 <strong>
-                  <FilterOutlined type='filter' />
+                  <RollbackOutlined type='filter' />
                   Department:
                 </strong>
               </label>
@@ -184,7 +184,7 @@ function LandingPage() {
             <Col lg={12} xs={12}>
               <label>
                 <strong>
-                  <FilterOutlined type='filter' />
+                  <RollbackOutlined type='filter' />
                   Price:
                 </strong>
               </label>
@@ -196,7 +196,7 @@ function LandingPage() {
             <Col lg={12} xs={12}>
               <label>
                 <strong>
-                  <FilterOutlined type='filter' />
+                  <RollbackOutlined type='filter' />
                   Program Level:
                 </strong>
               </label>
