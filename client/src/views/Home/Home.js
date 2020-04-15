@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from 'antd';
-import Icon, { ReadOutlined, DollarOutlined, SafetyOutlined, ShopOutlined, SearchOutlined, SaveOutlined } from '@ant-design/icons';
+import Icon, { ReadOutlined, SafetyOutlined, ShopOutlined, SearchOutlined, SaveOutlined, PayCircleOutlined } from '@ant-design/icons';
 import './Home.css';
 import { Row, Col } from 'antd';
 
@@ -64,7 +64,7 @@ function Home() {
             </Col>
             <Col className='gutter-row' span={12}>
               <div>
-                <DollarOutlined type='dollar' style={{ fontSize: '4em' }} />
+                <PayCircleOutlined type='dollar' style={{ fontSize: '4em' }} />
                 <h3 style={{ fontSize: '30px' }}>Purchase cheap textbooks</h3>
                 <p
                   style={{
