@@ -1,7 +1,7 @@
 # textbooks-exchange
 
 ## Getting Started
-Website:
+- #### `Website` : https://uf-textbook-exchange.herokuapp.com/
 
 ## File structure
 #### `client` - Holds the client application
