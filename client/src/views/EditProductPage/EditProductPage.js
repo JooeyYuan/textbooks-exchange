@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Typography, Button, Form, Input } from 'antd';
-import Icon, { BookOutlined } from '@ant-design/icons';
+import Icon, { FileOutlined } from '@ant-design/icons';
 import FileUpload from '../../components/FileUpload';
 import Axios from 'axios';
 
@@ -181,7 +181,7 @@ function EditProductPage(props) {
       <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
         <Title level={2}>
           {' '}
-          Edit My Textbooks <BookOutlined type='book' />
+          Edit My Textbooks <FileOutlined type='book' />
         </Title>
       </div>
       <Form onSubmit={onSubmit}>
