@@ -159,7 +159,7 @@ function LandingPage() {
             <Col lg={12} xs={12}>
               <label>
                 <strong>
-                  <RollbackOutlined type='filter' />
+                  <FilterOutlined type='filter' />
                   Category:
                 </strong>
               </label>
@@ -171,7 +171,7 @@ function LandingPage() {
             <Col lg={12} xs={12}>
               <label>
                 <strong>
-                  <RollbackOutlined type='filter' />
+                  <FilterOutlined type='filter' />
                   Department:
                 </strong>
               </label>
@@ -185,7 +185,7 @@ function LandingPage() {
             <Col lg={12} xs={12}>
               <label>
                 <strong>
-                  <RollbackOutlined type='filter' />
+                  <FilterOutlined type='filter' />
                   Price:
                 </strong>
               </label>
