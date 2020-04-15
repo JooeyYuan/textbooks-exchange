@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Typography, Button, Form, Input } from 'antd';
-import Icon, { BookOutlined } from '@ant-design/icons';
+import Icon, { FileOutlined } from '@ant-design/icons';
 import FileUpload from '../../components/FileUpload';
 import Axios from 'axios';
 
@@ -179,7 +179,7 @@ function UploadProductPage(props) {
       <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
         <Title level={2}>
           {' '}
-          Upload My Textbooks <BookOutlined type='book' />
+          Upload My Textbooks <FileOutlined type='book' />
         </Title>
       </div>
       <Form onSubmit={onSubmit}>
