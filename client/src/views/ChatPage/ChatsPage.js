@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { Form, Input, Button, Row, Col } from 'antd';
-import {
-  MessageOutlined,
-  StopOutlined,
-  RollbackOutlined
-} from '@ant-design/icons';
+import MessageOutlined from '@ant-design/icons/MessageOutlined';
+import StopOutlined from '@ant-design/icons/StopOutlined';
+import EnterOutlined from '@ant-design/icons/EnterOutlined';
+
 import io from 'socket.io-client';
 import { connect } from 'react-redux';
 import moment from 'moment';
@@ -214,7 +213,7 @@ class ChatsPage extends Component {
                         required
                       />
                       <Button type='secondary' size='medium' htmlType='submit'>
-                        <RollbackOutlined />
+                        <EnterOutlined />
                       </Button>
                   </Form>
                 )}

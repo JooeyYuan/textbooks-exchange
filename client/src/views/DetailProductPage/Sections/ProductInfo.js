@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { Popover, Button, Descriptions } from 'antd';
-import {
-  MailOutlined,
-  PhoneOutlined,
-  RestOutlined,
-  UserOutlined,
-  MessageOutlined,
-  RollbackOutlined,
-  ShoppingCartOutlined
-} from '@ant-design/icons';
-import LaptopOutlined from '@ant-design/icons/LaptopOutlined'
+import MailOutlined from '@ant-design/icons/MailOutlined';
+import PhoneOutlined from '@ant-design/icons/PhoneOutlined';
+import HomeOutlined from '@ant-design/icons/HomeOutlined';
+import RestOutlined from '@ant-design/icons/RestOutlined';
+import LaptopOutlined from '@ant-design/icons/LaptopOutlined';
+import MessageOutlined from '@ant-design/icons/MessageOutlined';
+import HeartOutlined from '@ant-design/icons/HeartOutlined';
+import ShoppingCartOutlined from '@ant-design/icons/ShoppingCartOutlined';
+
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
@@ -116,7 +115,7 @@ function ProductInfo(props) {
         <strong>Address:</strong>
       </label>
       <p>
-        <RollbackOutlined /> {Product.useraddr}
+        <HomeOutlined /> {Product.useraddr}
       </p>
       <label>
         <strong>Bio:</strong>
@@ -136,7 +135,7 @@ function ProductInfo(props) {
           type='danger'
           onClick={addToFavoritehandler}
         >
-          <RollbackOutlined />
+          <HeartOutlined />
         </Button>
       </div>
       <Descriptions title='Details:'>
