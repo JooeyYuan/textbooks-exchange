@@ -73,6 +73,6 @@
   },
   "homepage": "https://github.com/UFWebApps/React_Template_Repo#readme",
   "devDependencies": {
-    "@ant-design/icons": "^4.0.0-rc.0"
+    "@ant-design/icons": "^4.0.6"
   }
 }
