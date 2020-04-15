@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from 'antd';
-import Icon, { DisconnectOutlined } from '@ant-design/icons';
+import Icon, { StopOutlined } from '@ant-design/icons';
 
 function UserCardBlock(props) {
   const renderFavoriteImage = (images) => {
@@ -26,7 +26,7 @@ function UserCardBlock(props) {
         <td>$ {product.price} </td>
         <td>
           <Button type='danger' onClick={() => props.removeItem(product._id)}>
-            <DisconnectOutlined type='delete' />{' '}
+            <StopOutlined type='delete' />{' '}
           </Button>{' '}
         </td>
       </tr>
