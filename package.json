@@ -22,7 +22,7 @@
     "url": "https://github.com/UFWebApps/React_Template_Repo.git"
   },
   "keywords": [],
-  "author": "Yuhan Hou",
+  "author": "Yuhan Hou, Zhuoyu Yuan",
   "license": "MIT",
   "dependencies": {
     "@sendgrid/mail": "^6.3.1",
