@@ -15,14 +15,13 @@
     "dev": "concurrently \"nodemon server/server.js\" \"cd client && npm run start\"",
     "build": "cd client && npm build",
     "start": "node server/server.js",
-    "heroku-postbuild": "cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run build "
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/UFWebApps/React_Template_Repo.git"
   },
   "keywords": [],
-  "author": "Yuhan Hou",
+  "author": "Yuhan Hou, Zhuoyu Yuan",
   "license": "MIT",
   "dependencies": {
     "@sendgrid/mail": "^6.3.1",
