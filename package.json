@@ -27,10 +27,11 @@
   "dependencies": {
     "@sendgrid/mail": "^6.3.1",
     "antd": "^4.1.1",
+    "@ant-design/icons": "^4.0.6",
     "async": "^3.1.0",
     "axios": "^0.19.2",
-    "babel-eslint": "^10.0.3",
-    "babel-loader": "^8.0.6",
+    "babel-eslint": "^10.1.0",
+    "babel-loader": "^8.1.0",
     "bcrypt": "^3.0.6",
     "body-parser": "^1.19.0",
     "concurrently": "^4.1.2",
@@ -67,12 +68,8 @@
     "socket.io": "^2.3.0",
     "socket.io-client": "^2.3.0",
     "supertest": "^4.0.2",
-    "webpack": "^4.41.5",
-    "webpack-dev-server": "^3.10.2",
+    "webpack": "^4.42.0",
+    "webpack-dev-server": "^3.10.3",
     "yup": "^0.28.3"
-  },
-  "homepage": "https://github.com/UFWebApps/React_Template_Repo#readme",
-  "devDependencies": {
-    "@ant-design/icons": "^4.0.6"
   }
 }
