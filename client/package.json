@@ -1,23 +1,28 @@
 {
-  "name": "react_template_repo",
+  "name": "textbooks-exchange-client",
   "version": "0.1.0",
   "private": true,
+  "description": "This is the client for textbook-exchange.",
   "dependencies": {
+    "@ant-design/icons": "^2.1.1",
+    "@ant-design/icons-react": "^2.0.1",
     "antd": "^3.24.1",
     "axios": "^0.18.0",
+    "eslint-config-react-app": "^5.2.1",
     "formik": "^1.5.8",
+    "lodash": "^4.17.15",
     "moment": "^2.24.0",
-    "react": "^16.10.1",
+    "react": "^16.13.1",
     "react-dom": "^16.10.1",
     "react-dropzone": "^10.2.1",
-    "react-icons": "^3.7.0",
+    "react-facebook-login": "^4.1.1",
     "react-image-gallery": "^1.0.3",
+    "react-modal": "^3.11.2",
     "react-paypal-express-checkout": "^1.0.5",
     "react-redux": "^7.1.0-rc.1",
-    "react-router-dom": "^5.0.1",
+    "react-router-dom": "^5.1.2",
     "react-scripts": "^3.4.0",
     "redux": "^4.0.0",
-    "redux-form": "^8.2.6",
     "redux-promise": "^0.6.0",
     "redux-thunk": "^2.3.0",
     "socket.io-client": "^2.2.0",
@@ -43,9 +48,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "react-router-dom": "^5.1.2"
   },
   "proxy": "http://localhost:5000"
 }
