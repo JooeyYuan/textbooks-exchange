@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Form, Input, Button, Row, Col } from 'antd';
 import MessageOutlined from '@ant-design/icons/MessageOutlined';
-import StopOutlined from '@ant-design/icons/StopOutlined';
+import DeleteOutlined from '@ant-design/icons/DeleteOutlined';
 import EnterOutlined from '@ant-design/icons/EnterOutlined';
 
 import { connect } from 'react-redux';
@@ -157,7 +157,7 @@ class ChatsPage extends Component {
         <div style={{ maxWidth: '1000px', margin: '75px auto' }}>
           <Row>
             <Col span={24}>
-              <div style={{ textAlign: 'center' }}>
+              <div  style={{ textAlign: 'center' }}>
                 <h1>Messages</h1>
               </div>
             </Col>
@@ -171,7 +171,7 @@ class ChatsPage extends Component {
                     <div className='recipientList' key={i} onClick={() => this.readMessages(recipient._id)}>
                       <h3>
                         {!recipient.newChat && (
-                          <StopOutlined
+                          <DeleteOutlined
                             onClick={() => this.deleteMessages(recipient._id)}
                           />
                         )}{' '}

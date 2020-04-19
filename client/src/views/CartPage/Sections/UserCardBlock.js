@@ -2,7 +2,7 @@ import React from 'react';
 import { Button } from 'antd';
 import MailOutlined from '@ant-design/icons/MailOutlined';
 import PhoneOutlined from '@ant-design/icons/PhoneOutlined';
-import StopOutlined from '@ant-design/icons/StopOutlined';
+import DeleteOutlined from '@ant-design/icons/DeleteOutlined';
 
 function UserCardBlock(props) {
   const renderCartImage = (images) => {
@@ -33,7 +33,7 @@ function UserCardBlock(props) {
         <td>$ {product.price} </td>
         <td>
           <Button type='danger' onClick={() => props.removeItem(product._id)}>
-            <StopOutlined type='delete' />{' '}
+            <DeleteOutlined type='delete' />{' '}
           </Button>{' '}
         </td>
       </tr>

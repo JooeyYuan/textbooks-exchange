@@ -2,7 +2,7 @@
     /* background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(/book.jpg);
     background-size: cover;
     background-position: center; */
-    padding-top: -300px;
+    /* padding-top: -300px; */
   }
 
 .black {
@@ -20,7 +20,6 @@ h1,h2{
     border-width:small;
     border-left-style:none;
     border-right-style:none;
-    border-top-style:none;
 }
 
 .recipientList{
@@ -72,19 +71,22 @@ h1,h2{
 }
 
 .rightBar{
-    width:700px; 
+    width:745px; 
     height:500px;
     float: right;
     overflow-y: scroll;
+    border-style:solid;
+    border-width:medium;
+    border-left-style:none;
 }
 
 .inputWhole{
     width:1000px; 
     padding-left: 252px;
-    border-style:solid;
+    /* border-style:solid;
     border-width:medium;
     border-left-style:none;
-    border-right-style:none;
+    border-right-style:none; */
 }
 
 .inputLine{

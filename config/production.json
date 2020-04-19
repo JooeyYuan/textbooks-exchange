@@ -1,4 +1,4 @@
 {
-    "mongoURI": "mongodb+srv://Eddie123:yzy980913@textbook-exchange-7pfkz.mongodb.net/test?retryWrites=true&w=majority"
+    "mongoURI": "mongodb+srv://eddie:yzy980913@cluster0-stgvw.mongodb.net/test?retryWrites=true&w=majority"
   }
   
