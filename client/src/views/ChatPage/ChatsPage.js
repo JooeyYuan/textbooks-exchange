@@ -4,12 +4,12 @@ import MessageOutlined from '@ant-design/icons/MessageOutlined';
 import StopOutlined from '@ant-design/icons/StopOutlined';
 import EnterOutlined from '@ant-design/icons/EnterOutlined';
 
-import io from 'socket.io-client';
 import { connect } from 'react-redux';
 import moment from 'moment';
 import _ from 'lodash';
 import { capitalizeFirstLetter } from '../../utils';
 import './ChatsPage.css';
+import { AppContext } from '../../Context';
 
 class ChatsPage extends Component {
   state = {
@@ -21,17 +21,15 @@ class ChatsPage extends Component {
 
   componentDidMount() {
     this.currentUserId = localStorage.getItem('userId');
-    this.socket = io('http://localhost:5000', {
-      query: { userId: this.currentUserId },
-    });
+    const { socket } = this.context;
 
-    this.socket.emit('getRecipientsList', (recipients) => { // fetch current User's recipient list
+    socket.emit('getRecipientsList', (recipients) => { // fetch current User's recipient list
       const { location } = this.props;
       const recipient = location.state?.seller;
       if (recipient) { // if coming from a product page
         const { _id, fullname } = recipient;
         if (recipients.find((r) => r._id === _id)) {
-          this.setState({ recipients }, () => this.readMessages(_id));
+          this.setState({ recipients })
         } else {
           const newRecipient = { _id, fullname, unread: 0, newChat: true };
           this.setState({
@@ -44,7 +42,8 @@ class ChatsPage extends Component {
       }
     });
 
-    this.socket.on('receiveMsg', (msg) => {
+    socket.on('receiveMsg', (msg) => {
+      const { unreadMsgsCount, setUnreadMsgsCount } = this.context;
       const { recipient, sender } = msg;
       const {
         activeRecipient,
@@ -56,17 +55,21 @@ class ChatsPage extends Component {
         if (activeRecipient?._id === sender._id) {  // is it the person I'm currently chatting with?
           this.setState({
             selectedRecipientMessages: selectedRecipientMessages.concat(msg),
-          });
+          })
         } else if (foundRecipient) { // checks if the recipient in your list already
           foundRecipient.unread += 1;
-          this.setState({ recipients });
+          this.setState({ recipients }, () => {
+            setUnreadMsgsCount(unreadMsgsCount + 1);
+          });
         } else { // if a new recipient, add to the list
           const newRecipient = {
             _id: sender._id,
             fullname: sender.fullname,
             unread: 1,
           };
-          this.setState({ recipients: recipients.concat(newRecipient) });
+          this.setState({ recipients: recipients.concat(newRecipient) }, () => {
+            setUnreadMsgsCount(unreadMsgsCount + 1);
+          });
         }
       }
     });
@@ -78,15 +81,19 @@ class ChatsPage extends Component {
   handleInputChange = (e) => this.setState({ [e.target.id]: e.target.value });
 
   submitChatMessage = () => {
+    const { socket } = this.context;
     const {
       activeRecipient,
       chatMessage,
       selectedRecipientMessages,
+      recipients
     } = this.state;
     const {
       user: { userData },
     } = this.props;
-    this.socket.emit(
+    const theRecipient = recipients.find(r => r._id == activeRecipient._id);
+    theRecipient.newChat = false;
+    socket.emit(
       'sendMsg',
       {
         message: chatMessage,
@@ -98,30 +105,37 @@ class ChatsPage extends Component {
         this.setState({
           selectedRecipientMessages: selectedRecipientMessages.concat(newMsg),
           chatMessage: '',
+          recipients
         });
       }
     );
   };
 
   readMessages = (recipientId) => {
+    const { socket, unreadMsgsCount, setUnreadMsgsCount } = this.context;
     const { recipients } = this.state;
     const activeRecipient = recipients.find((r) => r._id === recipientId);
     if (activeRecipient) {
-      this.setState({ activeRecipient, selectedRecipientMessages: [] }, () => {
+      activeRecipient.unread = 0;
+      this.setState({ activeRecipient, selectedRecipientMessages: [], recipients }, () => {
         const users = [this.currentUserId, activeRecipient._id];
-        this.socket.emit('readRecipientMsgs', users, (msgs) => {
-          activeRecipient.unread = 0;
-          this.setState({ selectedRecipientMessages: msgs, recipients });
+        socket.emit('readRecipientMsgs', users, (msgs) => {
+          this.setState({ selectedRecipientMessages: msgs }, () => {
+            if (msgs.some(m => !m.read)) {
+              setUnreadMsgsCount(unreadMsgsCount - 1);
+            }
+          });
         });
       });
     }
   };
 
   deleteMessages = (recipientId) => {
+    const { socket } = this.context;
     const { recipients } = this.state;
     const activeRecipient = recipients.find((r) => r._id === recipientId);
     if (activeRecipient) {
-      this.socket.emit('deleteUserChats', { recipientId }, () => {
+      socket.emit('deleteUserChats', { recipientId }, () => {
         this.setState({
           recipients: recipients.filter((r) => r._id !== recipientId),
           selectedRecipientMessages: [],
@@ -150,7 +164,7 @@ class ChatsPage extends Component {
             <div className='wholeView'>
               <div className='leftBar'>
                 <Col style={{ borderBlockWidth: '2px' }} >
-                  <div className='recipients'> 
+                  <div className='recipients'>
                     <h2>Recipients</h2>
                   </div>
                   {recipients.map((recipient, i) => (
@@ -177,10 +191,10 @@ class ChatsPage extends Component {
                     <Col>
                       <div className='messagesView'>
                         {selectedRecipientMessages.map((m, i) => (
-                          <div  className='messagesSender' key={i}>
+                          <div className='messagesSender' key={i}>
                             {capitalizeFirstLetter(m.sender.fullname)}
                             {' - '}
-                            <span className= 'messagesDate'>
+                            <span className='messagesDate'>
                               {moment(m.createdAt).format('MMMM Do YYYY, h:mm a')}:
                             </span>{' '}{"\n"}
                             <span className='messagesContent'
@@ -192,29 +206,29 @@ class ChatsPage extends Component {
                     </Col>
                   </Row>
                 </Col>
-                </div>
+              </div>
             </div>
             <div className='inputWhole'>
               <div className='inputLine'>
                 {activeRecipient && (
-                  <Form  onFinish={this.submitChatMessage}>
-                      <Input
-                        style={{ width: '650px'}}
-                        id='chatMessage'
-                        prefix={
-                          <MessageOutlined
-                            style={{ color: 'rgba(255,0,0,0.6)' }}
-                          />
-                        }
-                        placeholder='Type your message'
-                        type='text'
-                        value={chatMessage}
-                        onChange={this.handleInputChange}
-                        required
-                      />
-                      <Button type='secondary' size='medium' htmlType='submit'>
-                        <EnterOutlined />
-                      </Button>
+                  <Form onClick={this.submitChatMessage}>
+                    <Input
+                      style={{ width: '650px' }}
+                      id='chatMessage'
+                      prefix={
+                        <MessageOutlined
+                          style={{ color: 'rgba(255,0,0,0.6)' }}
+                        />
+                      }
+                      placeholder='Type your message'
+                      type='text'
+                      value={chatMessage}
+                      onChange={this.handleInputChange}
+                      required
+                    />
+                    <Button type='secondary' size='default' htmlType='submit'>
+                      <EnterOutlined />
+                    </Button>
                   </Form>
                 )}
               </div>
@@ -232,5 +246,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapActionsToProps = (dispatch) => ({});
+
+ChatsPage.contextType = AppContext;
 
 export default connect(mapStateToProps, mapActionsToProps)(ChatsPage);

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Menu, Badge, Tooltip } from 'antd';
 import UserAddOutlined from '@ant-design/icons/UserAddOutlined';
 import UploadOutlined from '@ant-design/icons/UploadOutlined';
@@ -10,7 +10,10 @@ import axios from 'axios';
 import { withRouter } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
+import { AppContext } from '../../../Context';
+
 function RightMenu(props) {
+  const { unreadMsgsCount } = useContext(AppContext);
   const user = useSelector((state) => state.user);
 
   const logoutHandler = () => {
@@ -59,7 +62,7 @@ function RightMenu(props) {
         </Menu.Item>
 
         <Menu.Item key='wishlist' style={{ paddingBottom: 8 }}>
-          <Badge dot={user.userData && user.userData.favorite.length}>
+          <Badge dot={Boolean(user.userData && user.userData.favorite.length)}>
             <Tooltip placement='bottom' title='wish list'>
               <a href='/favorite'>
                 <HeartOutlined style={{ fontSize: 25 }} />
@@ -79,14 +82,14 @@ function RightMenu(props) {
         </Menu.Item>
 
         <Menu.Item key='chat' style={{ paddingBottom: 8 }}>
-          <Badge count={user.userData && user.userData.cart.length}>
+          <Badge count={unreadMsgsCount}>
             <Tooltip placement='bottom' title='chats'>
               <a href='/chats'>
                 <MessageOutlined style={{ fontSize: 25 }} />
               </a>
             </Tooltip>
           </Badge>
-        </Menu.Item>        
+        </Menu.Item>
 
         <Menu.Item key='logout'>
           <Tooltip placement='bottom' title='sign out'>

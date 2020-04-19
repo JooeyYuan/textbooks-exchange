@@ -13,10 +13,9 @@ import { fetchProfile, updateProfile } from '../../actions/user_actions';
 
 const { TextArea } = Input;
 const sex = [
-  { key: 1, value: '' },
-  { key: 2, value: 'Male' },
-  { key: 3, value: 'Female' },
-  { key: 4, value: "I don't want to provide" },
+  { key: '', value: "I don't want to provide" },
+  { key: 'male', value: 'Male' },
+  { key: 'female', value: 'Female' },
 ];
 
 function ProfilePage() {
@@ -110,7 +109,7 @@ function ProfilePage() {
   const renderImage = (images) => {
     if (images.length > 0) {
       let image = images[0];
-      return `http://localhost:5000/${image}`;
+      return image;
     }
   };
 

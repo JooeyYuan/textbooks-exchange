@@ -13,7 +13,7 @@ module.exports = (io, socket) => {
       cb(message);
       socket.broadcast.emit('receiveMsg', message);
     } catch (err) {
-      console.log('error sending message', err);
+      //console.log('error sending message', err);
     }
   });
 
@@ -30,14 +30,14 @@ module.exports = (io, socket) => {
       }).populate(['sender', 'recipient']);
 
       roomMessages = _.uniqBy(roomMessages, '_id');
-      const roomMessagesPromises = roomMessages
+      cb(roomMessages);
+      const roomMessagesPromises = [...roomMessages]
         .filter((m) => m.recipient._id.toString() === currentUserId)
         .map((m) => {
           m.read = true;
           return m.save();
         });
       await Promise.all(roomMessagesPromises);
-      cb(roomMessages);
     } catch (err) {
       console.log('error reading recipient messages', err);
     }
@@ -69,19 +69,23 @@ module.exports = (io, socket) => {
 
       const recipientsPromises = recipients.map((r) => {
         return new Promise(async (resolve) => {
-          const { fullname } = await User.findOne({ _id: r }).lean();
-          const room = [r, currentUserId].sort().join('|');
-          const unread = messages.filter(
-            (m) => m.sender == r && m.recipient == currentUserId && !m.read
-          ).length;
-          socket.join(room, () => {
-            resolve({ fullname, _id: r, unread });
-          });
+          try {
+            const { fullname } = await User.findOne({ _id: r }).lean();
+            const room = [r, currentUserId].sort().join('|');
+            const unread = messages.filter(
+              (m) => m.sender == r && m.recipient == currentUserId && !m.read
+            ).length;
+            socket.join(room, () => {
+              resolve({ fullname, _id: r, unread });
+            });
+          } catch (err) {
+            resolve(null)
+          }
         });
       });
 
       const recips = await Promise.all(recipientsPromises);
-      cb(recips);
+      cb(recips.filter(r => r));
     } catch (err) {
       console.log('error sending message', err);
     }

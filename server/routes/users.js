@@ -9,7 +9,7 @@ const async = require('async');
 router.get("/auth", auth, (req, res) => {
     res.status(200).json({
         _id: req.user._id,
-        isAdmin: req.user.role === 0 ? false : true,
+        isAdmin: req.user.role !== 0,
         isAuth: true,
         email: req.user.email,
         fullname: req.user.fullname,

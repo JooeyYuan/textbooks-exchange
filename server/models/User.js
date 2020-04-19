@@ -12,26 +12,26 @@ const userSchema = mongoose.Schema({
     email: {
         type: String,
         trim: true,
-        unique: true
+        unique: true,
     },
-    address: { 
-        type: String, 
-    },
-    major: { 
-        type: String, 
-    },
-    sex: { 
+    address: {
         type: String,
-        enum: ['male', 'female']
     },
-    phone: { 
-        type: String, 
+    major: {
+        type: String,
     },
-    birthday: { 
-        type: String, 
+    sex: {
+        type: String,
+        enum: ['male', 'female', null],
     },
-    description: { 
-        type: String, 
+    phone: {
+        type: String,
+    },
+    birthday: {
+        type: String,
+    },
+    description: {
+        type: String,
     },
     password: {
         type: String,
@@ -115,6 +115,14 @@ userSchema.statics.findByToken = function (token, cb) {
         })
     })
 }
+
+userSchema.post('save', (err, doc, next) => {
+    if (err.name === 'MongoError' && err.code === 11000) {
+        next(`${Object.values(err.keyValue)[0]} already exists`);
+    } else {
+        next(err);
+    }
+});
 
 const User = mongoose.model('User', userSchema);
 module.exports = { User }
