@@ -1,13 +1,14 @@
 const express = require('express');
 const router = express.Router();
+const path = require('path');
 const { Product } = require("../models/Product");
 const { Comment } = require("../models/Comment");
 const multer = require('multer');
 const { auth } = require("../middleware/auth");
 
-var storage = multer.diskStorage({
+const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, 'uploads/')
+        cb(null, path.resolve(`${__dirname}/../../uploads`))
     },
     filename: (req, file, cb) => {
         cb(null, `${Date.now()}_${file.originalname}`)

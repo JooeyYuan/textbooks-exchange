@@ -16,8 +16,8 @@ function FileUpload(props) {
     Axios.post('/api/product/uploadImage', formData, config).then(
       (response) => {
         if (response.data.success) {
-          setImages([...Images, response.data.image]);
-          props.refreshFunction([...Images, response.data.image]);
+          setImages([...Images, response.data.fileName]);
+          props.refreshFunction([...Images, response.data.fileName]);
         } else {
           alert('Failed to save the Image in Server');
         }
@@ -68,7 +68,7 @@ function FileUpload(props) {
           <div onClick={() => onDelete(image)}>
             <img
               style={{ minWidth: '300px', width: '300px', height: '240px' }}
-              src={image}
+              src={`/uploads/${image}`}
               alt={`productImg-${index}`}
             />
           </div>

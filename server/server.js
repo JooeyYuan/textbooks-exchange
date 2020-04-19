@@ -29,7 +29,7 @@ connectDB().then(() => {
   app.use('/api/product', require('./routes/product'));
   app.use('/api/comment', require('./routes/comment'));
   app.use('/api/like', require('./routes/like'));
-  app.use('/uploads', express.static('uploads'));
+  app.use('/uploads', express.static(path.resolve(`${__dirname}/../uploads`)));
 
   //sgMail.setApiKey(process.env.sgmail || require('./config/config').sgmail);
   io.on('connection', (socket) => {
