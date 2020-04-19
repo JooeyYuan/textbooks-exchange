@@ -133,7 +133,7 @@ function CartPage(props) {
                         transactionCanceled={transactionCanceled}
                     />
                     <p>Or</p>
-                    <Button onClick={() => props.history.push({pathname: '/chats', state: { seller: props.user.userData }})} type="dashed" size="large">Contact seller for in person exchange</Button>
+                    <Button onClick={() => props.history.push('/chats')} type="dashed" size="large">Contact seller for in person exchange</Button>
                 </div>
             }
         </div>

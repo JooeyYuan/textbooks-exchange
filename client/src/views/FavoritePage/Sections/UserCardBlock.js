@@ -6,7 +6,7 @@ function UserCardBlock(props) {
   const renderFavoriteImage = (images) => {
     if (images.length > 0) {
       let image = images[0];
-      return image;
+      return `/uploads/${image}`;
     }
   };
 
