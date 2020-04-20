@@ -176,7 +176,7 @@ class ChatsPage extends Component {
                           />
                         )}{' '}
                         -{' '}
-                        <span className='black'>
+                        <span>
                           {capitalizeFirstLetter(recipient.fullname)}
                         </span>
                         {recipient.unread ? ` - ${recipient.unread} New` : ''}

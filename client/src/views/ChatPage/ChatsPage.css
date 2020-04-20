@@ -1,12 +1,27 @@
-#home-bg{
-    /* background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(/book.jpg);
-    background-size: cover;
-    background-position: center; */
-    /* padding-top: -300px; */
-  }
+h3:hover {
+    /* background-color:  rgb(135, 202, 233);
+    cursor: pointer;
+    border-radius: 5px; */
+    box-shadow: 0 5px 5px rgba(110, 109, 109, 0.829);
+}
 
-.black {
-    color: rgb(4, 12, 1);
+h3 {
+    color: white;
+    cursor: pointer;
+    top: 1px;
+    left: 0;
+    bottom: 1px;
+    right: 0;
+    background: linear-gradient(135deg, #6e8efb, #a777e3);
+    border-radius: 4px;
+    transition: box-shadow .5s ease, transform .2s ease; 
+    will-change: transform;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .2);
+    transform:
+        translateY(var(--ty, 0))
+        rotateX(var(--rx, 0))
+        rotateY(var(--ry, 0))
+        translateZ(var(--tz, -12px));
 }
 
 h1,h2{
@@ -14,6 +29,7 @@ h1,h2{
 }
 
 .recipients{
+    font-style:oblique;
     text-align:center;
     font: Serif;
     border-style:solid;
@@ -23,6 +39,7 @@ h1,h2{
 }
 
 .recipientList{
+    font-style:oblique;
     font-weight: bold;
     border-style:solid;
     border-width:small;
@@ -31,6 +48,7 @@ h1,h2{
     border-left-style:none;
     border-right-style:none;
     border-top-style:none;
+    
 }
 
 .messagesView{
@@ -38,16 +56,20 @@ h1,h2{
 }
 
 .messagesSender{
+    font-style:oblique;
     font-weight: bold;
-    font-size: medium;
+    font-size: large;
     line-height: 30px;
 }
 
 .messagesDate{
+    font-style:oblique;
     font-size: medium;   
 }
 
 .messagesContent{
+    font-style:normal;
+    color:  rgb(26, 157, 218);
     font-weight: bold;
     font-size: large;
 }
